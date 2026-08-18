@@ -1,0 +1,78 @@
+// 1. Barra de Progresso de Leitura ao Rolar
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// 2. Sistema de Curtidas Independente por Post
+function toggleLike(btn) {
+  const countSpan = btn.querySelector('.like-count');
+  let currentLikes = parseInt(countSpan.textContent);
+
+  if (!btn.classList.contains('active')) {
+    btn.classList.add('active');
+    countSpan.textContent = currentLikes + 1;
+  } else {
+    btn.classList.remove('active');
+    countSpan.textContent = currentLikes - 1;
+  }
+}
+
+// 3. Alternar Modo Turbo RGB
+const turboBtn = document.getElementById('turboBtn');
+turboBtn.addEventListener('click', () => {
+  document.body.classList.toggle('turbo-mode');
+  if (document.body.classList.contains('turbo-mode')) {
+    turboBtn.textContent = '🔥 Modo Turbo ATIVO';
+    turboBtn.style.borderColor = '#00ffcc';
+    turboBtn.style.color = '#00ffcc';
+  } else {
+    turboBtn.textContent = '⚡ Ativar Modo Turbo RGB';
+    turboBtn.style.borderColor = '#ff0055';
+    turboBtn.style.color = '#ff0055';
+  }
+});
+
+// 4. Simulador de Leitores Online (Flutuação em Tempo Real)
+const onlineUsersElement = document.getElementById('onlineUsers');
+setInterval(() => {
+  let currentUsers = parseInt(onlineUsersElement.textContent);
+  let change = Math.floor(Math.random() * 5) - 2; // Varia de -2 a +2
+  let newTotal = Math.max(100, currentUsers + change);
+  onlineUsersElement.textContent = newTotal;
+}, 3000);
+
+// 5. Sistema de Comentários Dinâmico
+const commentInput = document.getElementById('commentInput');
+const addCommentBtn = document.getElementById('addCommentBtn');
+const commentsList = document.getElementById('commentsList');
+
+addCommentBtn.addEventListener('click', addComment);
+commentInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') addComment();
+});
+
+function addComment() {
+  const text = commentInput.value.trim();
+  if (text !== '') {
+    const newComment = document.createElement('div');
+    newComment.className = 'comment-item';
+    newComment.innerHTML = `<strong>@Visitante:</strong> ${text}`;
+    commentsList.prepend(newComment);
+    commentInput.value = '';
+  }
+}
+
+// 6. Compartilhar Post com Notificação Toast
+function sharePost(title) {
+  navigator.clipboard.writeText(window.location.href);
+  const toast = document.getElementById('toast');
+  toast.textContent = `Link de "${title}" copiado!`;
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
