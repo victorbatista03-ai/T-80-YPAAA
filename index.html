@@ -1,0 +1,82 @@
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="blog-container">
+  <header class="blog-header">
+    <h1 class="rgb-text">BlogT-80 victor</h1>
+    <p class="subtitle">Central de Inovação & Tecnologias Emergentes</p>
+    
+    <div class="status-bar">
+      <span class="status-item">🟢 Sistema: <strong class="green-text">ONLINE</strong></span>
+      <span class="status-item">👥 Leitores Conectados: <strong id="onlineUsers">128</strong></span>
+    </div>
+
+    <div class="control-panel">
+      <button id="turboBtn" class="turbo-btn">⚡ Ativar Modo Turbo RGB</button>
+    </div>
+  </header>
+
+  <main class="content-feed">
+    <article class="post-card">
+      <div class="card-header">
+        <span class="tag tag-ia">Inteligência Artificial</span>
+        <span class="read-time">⏱️ 3 min de leitura</span>
+      </div>
+      
+      <h2>A Revolução dos Agentes Autônomos em 2026</h2>
+      <p>
+        O avanço da tecnologia atingiu um novo patamar. Não estamos apenas conversando 
+        com IAs; elas agora executam tarefas complexas, tomam decisões estratégicas 
+        e orquestram fluxos de trabalho inteiros sem intervenção humana direta.
+      </p>
+
+      <div class="card-footer">
+        <button class="action-btn like-btn" onclick="toggleLike(this)">
+          ❤️ <span class="like-count">142</span>
+        </button>
+        <button class="action-btn share-btn" onclick="sharePost('A Revolução dos Agentes Autônomos')">
+          🔗 Compartilhar
+        </button>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="card-header">
+        <span class="tag tag-hardware">Computação Quântica</span>
+        <span class="read-time">⏱️ 5 min de leitura</span>
+      </div>
+      
+      <h2>Interfaces Neurais e a Próxima Fronteira</h2>
+      <p>
+        A fusão entre biologia e silício deixa de ser ficção. Os recentes saltos em 
+        microchips implantáveis e sensores não invasivos prometem conectar o cérebro 
+        humano diretamente à nuvem nos próximos anos.
+      </p>
+
+      <div class="card-footer">
+        <button class="action-btn like-btn" onclick="toggleLike(this)">
+          ❤️ <span class="like-count">89</span>
+        </button>
+        <button class="action-btn share-btn" onclick="sharePost('Interfaces Neurais')">
+          🔗 Compartilhar
+        </button>
+      </div>
+    </article>
+
+    <section class="comments-section">
+      <h3>💬 Terminal de Discussão</h3>
+      
+      <div class="comment-input-group">
+        <input type="text" id="commentInput" placeholder="Escreva seu comentário..." />
+        <button id="addCommentBtn" class="send-btn">Enviar</button>
+      </div>
+
+      <div class="comments-list" id="commentsList">
+        <div class="comment-item">
+          <strong>@CyberUser:</strong> Design sensacional! O futuro da tecnologia é insano.
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="toast">Link copiado para a área de transferência!</div>
